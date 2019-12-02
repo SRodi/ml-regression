@@ -38,12 +38,13 @@ def pre_processing():
         if number_data_points < 800:
             del data_dictionary[combination_subset]
         else:
-            # split the data-points into features [1 point]
-            features.append([data_dictionary[combination_subset][0][0],
-                             data_dictionary[combination_subset][0][1],
-                             data_dictionary[combination_subset][0][2]])
-            # and targets [1 point]
-            targets.append(data_dictionary[combination_subset][0][3])
+            for data_points in data_dictionary[combination_subset]:
+                # split the data-points into features [1 point]
+                features.append([data_points[0],
+                                 data_points[1],
+                                 data_points[2]])
+                # and targets [1 point]
+                targets.append(data_points[3])
 
     print('features: ', len(features))
     print('targets: ', len(targets))
