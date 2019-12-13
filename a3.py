@@ -128,7 +128,7 @@ def k_fold(feats, targs):
         for degree in range(4):
             p0 = regression(degree, [feats[train_index]], [targs[train_index]])
             prediction = eval_poly_3(degree, p0,
-                                     feats[ls][0][0],
+                                     feats[test_index][0][0],
                                      feats[test_index][0][1],
                                      feats[test_index][0][2])
             # Calculate the difference between the predicted prices and the
